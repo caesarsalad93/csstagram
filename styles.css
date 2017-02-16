@@ -1,0 +1,49 @@
+:root {
+      --base: #ffc600;
+      --spacing: 10px;
+      --blur: 0px;
+      --opacity: 1;
+      --invert: 0%;
+      --contrast: 100%;
+      --grayscale: 0%;
+    }
+    button {
+      background: var(--base);
+      border-radius: 20px;
+      font-family: 'helvetica neue', sans-serif;
+      color: #ffffff;
+      font-size: 20px;
+      padding: 5px 10px 5px 10px;
+    }
+    img {
+      padding: var(--spacing);
+      background: var(--base);
+      filter: blur(var(--blur)) invert(var(--invert)) contrast(var(--contrast)) grayscale(var(--grayscale));
+      opacity: var(--opacity);
+    }
+    .hl {
+      color: var(--base);
+    }
+    
+    #newImg {
+      width: 500px;
+    }
+    body {
+      text-align: center;
+    }
+
+    body {
+      background: #193549;
+      color: white;
+      font-family: 'helvetica neue', sans-serif;
+      font-weight: 100;
+      font-size: 50px;
+    }
+
+    .controls {
+      margin-bottom: 50px;
+    }
+
+    input {
+      width:100px;
+    }
