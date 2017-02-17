@@ -6,6 +6,7 @@
       --invert: 0%;
       --contrast: 100%;
       --grayscale: 0%;
+      --sepia: 0%;
     }
     button {
       background: var(--base);
@@ -18,7 +19,7 @@
     img {
       padding: var(--spacing);
       background: var(--base);
-      filter: blur(var(--blur)) invert(var(--invert)) contrast(var(--contrast)) grayscale(var(--grayscale));
+      filter: blur(var(--blur)) invert(var(--invert)) contrast(var(--contrast)) grayscale(var(--grayscale)) sepia(var(--sepia));
       opacity: var(--opacity);
     }
     .hl {
