@@ -1,4 +1,5 @@
-const inputs = document.querySelectorAll('.controls input');
+(function() {
+  const inputs = document.querySelectorAll('.controls input');
 
 function changeImg(url) {
     document.querySelector('img').setAttribute('src', url);
@@ -14,9 +15,24 @@ function handleUpdate() {
     }
     document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
 }
+//Add Event Listener to each scroller
+inputs.forEach(input => input.addEventListener('change', handleUpdate));
 
+//Provide a random Image
 function randomImg() {
     var randomNum = Math.random() * 10;
     document.querySelector('img').setAttribute('src', `https://source.unsplash.com/random/800x${600 + randomNum}`)
 }
-inputs.forEach(input => input.addEventListener('change', handleUpdate));
+
+//When submit is clicked, change the image
+var imgInput = document.getElementById('newImg');
+document.getElementById('changeImg').addEventListener('click', function(){
+  changeImg(imgInput.value);
+});
+
+//When random is clicked, provide a random image
+document.getElementById('randomImg').addEventListener('click', function(){
+  randomImg();
+});
+})();
+
