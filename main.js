@@ -19,11 +19,30 @@
     inputs.forEach(input => input.addEventListener('change', handleUpdate));
 
     //Provide a random Image
-    function randomImg() {
-        var randomNum = Math.random() * 10;
-        document.querySelector('img').setAttribute('src', `https://source.unsplash.com/random/800x${600 + randomNum}`)
+//    function randomImg() {
+//        var randomNum = Math.random() * 10;
+//        document.querySelector('img').setAttribute('src', `https://source.unsplash.com/random/800x${600 + randomNum}`)
+//    }
+    function displayLoader() {
+      document.querySelector('img').removeAttribute('src');
+      document.querySelector('#loadbox').className = 'loader';
+      document.querySelector('img').style.border = 'none';
     }
-
+    function randomImg() {
+      displayLoader();
+      var randomNum = Math.random() * 10;
+      console.time('Took this long');
+      fetch(`https://source.unsplash.com/random/800x${600 + randomNum}`)
+      .then(function(response) {
+        document.querySelector('img').setAttribute('src', response.url);
+        document.querySelector('#loadbox').className = '';
+        setTimeout(function(){
+          document.querySelector('img').style.border = '10px var(--base) solid';
+        }, 100)
+        console.timeEnd('Took this long');
+      })
+    }
+  
     //When submit is clicked, change the image
     var imgInput = document.getElementById('newImg');
     document.getElementById('changeImg').addEventListener('click', function() {
